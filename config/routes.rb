@@ -3,7 +3,7 @@ Mercury::Engine.routes.draw do
 
   scope '/mercury' do
     get   ':type/:resource',        :to => "mercury#resource"
-    match 'snippets/:name/options', :to => "mercury#snippet_options", :via => [:get, :post]
-    match 'snippets/:name/preview', :to => "mercury#snippet_preview", :via => [:get, :post]
+    get 'snippets/:name/options', :to => "mercury#snippet_options", :via => [:get, :post]
+    get 'snippets/:name/preview', :to => "mercury#snippet_preview", :via => [:get, :post]
   end
 end
