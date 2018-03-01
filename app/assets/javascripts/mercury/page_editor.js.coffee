@@ -218,7 +218,7 @@ class @Mercury.PageEditor
 
 
   save: (callback) ->
-    url = @saveUrl ? Mercury.saveUrl ? @iframeSrc()
+    url = Mercury.saveUrl
     data = @serialize()
     data = {content: data}
 
@@ -246,11 +246,10 @@ class @Mercury.PageEditor
     if @options.saveStyle != 'form'
       options['data'] = jQuery.toJSON(data)
       options['contentType'] = 'application/json'
-    jQuery.ajax url, options
+    jQuery.ajax Mercury.saveURL, options
 
 
   serialize: ->
     serialized = {}
     serialized[region.name] = region.serialize() for region in @regions
     return serialized
-
